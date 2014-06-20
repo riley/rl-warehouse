@@ -1,0 +1,22 @@
+{
+    "name": "warehouse",
+    "description": "Riley Life Warehouse API",
+    "version": "0.0.1",
+    "keywords": [
+        "xml",
+        "rileylife"
+    ],
+    "author": {
+        "name": "Riley Davis",
+        "email": "riley.davis@gmail.com",
+        "url": "http://rileydav.is"
+    },
+    "main": "./lib/warehouse",
+    "directories": {
+        "lib": "./lib"
+    },
+    "dependencies": {
+        "xml2js": "0.4.4",
+        "request": "2.36.*"
+    }
+}
