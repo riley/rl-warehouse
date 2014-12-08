@@ -6,6 +6,10 @@
     "xml",
     "rileylife"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:spamhammer/rl-warehouse.git"
+  },
   "author": {
     "name": "Riley Davis",
     "email": "riley.davis@gmail.com",
@@ -16,8 +20,9 @@
     "lib": "./lib"
   },
   "dependencies": {
+    "bluebird": "^2.3.11",
     "request": "2.36.*",
-    "xml2js": "0.4.4",
-    "underscore": ""
+    "underscore": "",
+    "xml2js": "0.4.4"
   }
 }
