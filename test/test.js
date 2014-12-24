@@ -19,19 +19,19 @@ var warehouse = require('../lib/warehouse');
 
 // test order creation
 warehouse.createSingleOrder({
-    id: '14a544dbda0',
-    email: 'katkiernanphotography@gmail.com',
-    name: 'Louis K. Meisel Gallery',
-    address_1: '141 Prince Street',
-    address_2: 'Attn: Kat Kiernan',
-    city: 'New York',
-    state: 'NY',
-    zip: '10012',
-    shippingMode: 'First Class Mail',
+    id: '',
+    email: '',
+    name: '',
+    address_1: '',
+    address_2: '',
+    city: '',
+    state: '',
+    zip: '',
+    shippingMode: 'Priority Mail',
     country: 'United States',
     skus: [{
         sku: 'Tone-M-Ushirt-M',
-        quantity: 2
+        quantity: 1
     }]
 }).then(function (info) {
     console.log('order processed successfully');
