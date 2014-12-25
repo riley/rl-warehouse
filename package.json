@@ -24,5 +24,8 @@
     "request": "2.36.*",
     "underscore": "",
     "xml2js": "0.4.4"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0"
   }
 }
