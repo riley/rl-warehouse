@@ -6,49 +6,54 @@ process.env.THREE_PL_KEY = config.threePLKey;
 process.env.NODE_ENV = 'production';
 
 var warehouse = require('../lib/warehouse');
-var assert = require('chai').assert;
-
-// test findOrder endpoint
-// warehouse.findOrder('14a3cb4f74e').then(function (order) {
-//     console.log('the order?', order);
-// }).catch(function (e) {
-//     console.log('test failed to find order', e);
-// });
-
-// test inventory endpoint
-// warehouse.getInventory().then(console.log).catch(console.log).finally(process.exit);
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+chai.use(chaiAsPromised);
+var assert = chai.assert;
 
 // test finding orders
 describe('warehouse', function () {
     describe('#findOrder', function () {
+        var validOrderId = '14a3cb4f74e';
+
         it('should throw an error if no order id is passed as a String', function () {
             assert.throw(warehouse.findOrder, TypeError);
         });
         it('should throw an error if a callback is passed as the second argument', function () {
-            assert.throw(warehouse.findOrder.bind(warehouse, 'order1234', function () {}), TypeError);
+            assert.throw(warehouse.findOrder.bind(warehouse, validOrderId, function () {}), TypeError);
+        });
+
+        it('should return an object if an order is found', function () {
+            assert.eventually.isObject(warehouse.findOrder(validOrderId));
+        });
+
+        // going to have to figure out sinon and mocks?
+        // it('should have error property if order is not found', function (done) {
+        //     warehouse.findOrder(validOrderId).catch(done);
+        // });
+
+        it('should return a Promise', function () {
+            assert.instanceOf(warehouse.findOrder(validOrderId), 'Promise');
         });
     });
+
+    describe('#getInventory', function () {
+
+    });
+
+    describe('#cancelOrder', function () {
+
+    });
+
+    describe('#updateOrder', function () {
+
+    });
+
+    describe('#createItems', function () {
+
+    });
+
+    describe('#createSingleOrder', function () {
+
+    });
 });
-
-
-// warehouse.createSingleOrder({
-//     id: '',
-//     email: '',
-//     name: '',
-//     address_1: '',
-//     address_2: '',
-//     city: '',
-//     state: '',
-//     zip: '',
-//     shippingMode: 'Priority Mail',
-//     country: 'United States',
-//     skus: [{
-//         sku: 'Tone-M-Ushirt-M',
-//         quantity: 1
-//     }]
-// }).then(function (info) {
-//     console.log('order processed successfully');
-//     console.log(JSON.stringify(info, null, 2));
-// }).catch(function (e) {
-//     console.log('error shipping order', e);
-// });
